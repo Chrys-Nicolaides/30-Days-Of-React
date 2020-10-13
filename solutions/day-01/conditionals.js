@@ -43,7 +43,7 @@ if (anyNumber % 2 === 0) {
   console.log(`${anyNumber} is an odd number`);
 }
 
-// Conditionals Exercise - Level 2
+// // Conditionals Exercise - Level 2
 
 let myGrade = prompt("Enter your score");
 
@@ -66,7 +66,6 @@ let grader = (input) => {
 console.log(grader(myGrade));
 
 let seasonChecker = prompt("Enter the month of the year").toLowerCase();
-
 switch (seasonChecker) {
   case "january":
   case "february":
@@ -105,3 +104,36 @@ let checker = (day) => {
 };
 
 console.log(checker(dayChecker));
+
+// Conditionals Exercise - Level 3
+
+let capitalise = (input) => {
+  let firstLetter = input.charAt(0);
+  let word = input.substr(1);
+  return firstLetter.toUpperCase() + word.toLowerCase();
+};
+
+let monthChecker = prompt("Enter a month").toLowerCase();
+switch (monthChecker) {
+  case "january":
+  case "march":
+  case "may":
+  case "july":
+  case "august":
+  case "october":
+  case "december":
+    console.log(`${capitalise(monthChecker)} has 31 days`);
+    break;
+  case "april":
+  case "june":
+  case "september":
+  case "november":
+    console.log(`${capitalise(monthChecker)} has 30 days`);
+    break;
+  case "february":
+    console.log(`${capitalise(monthChecker)} has 29 days`);
+    break;
+  default:
+    console.log("That is not a valid month");
+    break;
+}
