@@ -42,3 +42,66 @@ if (anyNumber % 2 === 0) {
 } else {
   console.log(`${anyNumber} is an odd number`);
 }
+
+// Conditionals Exercise - Level 2
+
+let myGrade = prompt("Enter your score");
+
+let grader = (input) => {
+  if (input > 100) {
+    return "Wow over 100%, something is fishy";
+  } else if (input >= 80) {
+    return "A";
+  } else if (input >= 70) {
+    return "B";
+  } else if (input >= 60) {
+    return "C";
+  } else if (input >= 50) {
+    return "D";
+  } else {
+    return "F";
+  }
+};
+
+console.log(grader(myGrade));
+
+let seasonChecker = prompt("Enter the month of the year").toLowerCase();
+
+switch (seasonChecker) {
+  case "january":
+  case "february":
+  case "december":
+    console.log("Winter");
+    break;
+  case "march":
+  case "april":
+  case "may":
+    console.log("Spring");
+    break;
+  case "june":
+  case "july":
+  case "august":
+    console.log("Summer");
+    break;
+  case "september":
+  case "october":
+  case "november":
+    console.log("Autumn");
+    break;
+  default:
+    console.log("That is not a valid month");
+    break;
+}
+
+console.log(seasonChecker);
+
+let dayChecker = prompt("Enter day");
+let checker = (day) => {
+  if (day == "Saturday" || day == "Sunday") {
+    return "It's weekend!";
+  } else {
+    return "It's just another week day :(";
+  }
+};
+
+console.log(checker(dayChecker));
