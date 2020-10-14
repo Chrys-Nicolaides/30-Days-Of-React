@@ -43,7 +43,7 @@ if (anyNumber % 2 === 0) {
   console.log(`${anyNumber} is an odd number`);
 }
 
-// // Conditionals Exercise - Level 2
+// Conditionals Exercise - Level 2
 
 let myGrade = prompt("Enter your score");
 
