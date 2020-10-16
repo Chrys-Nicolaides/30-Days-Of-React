@@ -46,7 +46,7 @@ const users = {
     points: 50,
   },
   Brook: {
-    email: "daniel@daniel.com",
+    email: "brook@brook.com",
     skills: ["HTML", "CSS", "JavaScript", "React", "Redux"],
     age: 30,
     isLoggedIn: true,
@@ -90,6 +90,8 @@ const users = {
   },
 };
 
+// 1. Person with most skills
+
 let maxSkills = Object.entries(users)
   .map((user) => ({
     name: user[0],
@@ -99,7 +101,24 @@ let maxSkills = Object.entries(users)
 
 console.log(maxSkills);
 
-let skillTester;
+// 2.1 Users logged in
+
+let usersLoggedIn = (arrayInput, nameInput) => {
+  if (arrayInput.valueOf(true)) {
+    return `${nameInput} is logged in`;
+  } else {
+    return `${nameInput} is offline`;
+  }
+};
+
+console.log(
+  Object.entries(users).map((user) => ({
+    name: user[0],
+    usersLoggedIn: usersLoggedIn(user[1].isLoggedIn, user[0]),
+  }))
+);
+
+// 3. Search for  MERN developers
 
 let mernDev = (arrayInput, nameInput) => {
   if (arrayInput.includes("MongoDB" && "Express" && "React" && "Node")) {
@@ -115,3 +134,29 @@ console.log(
     mernDev: mernDev(user[1].skills, user[0]),
   }))
 );
+
+console.log(typeof users);
+
+// 4. Add name to object without modifying it
+
+const copyUsers = Object.assign({}, users);
+copyUsers.Chrys = {
+  email: "chrys@chrys.com",
+  skills: ["HTML", "CSS", "Javascript", "React"],
+  age: 30,
+  isLoggedIn: false,
+  points: 100,
+};
+console.log(copyUsers);
+
+// 5. All keys
+
+const keys = Object.keys(users);
+console.log(keys);
+
+// 6. All values
+
+const values = Object.values(users);
+console.log(values);
+
+// 7. Countries
