@@ -101,7 +101,7 @@ let maxSkills = Object.entries(users)
 
 console.log(maxSkills);
 
-// 2.1 Users logged in
+// 2. Users logged in
 
 let usersLoggedIn = (arrayInput, nameInput) => {
   if (arrayInput.valueOf(true)) {
@@ -110,6 +110,20 @@ let usersLoggedIn = (arrayInput, nameInput) => {
     return `${nameInput} is offline`;
   }
 };
+
+const userCounter = Object.values(users).reduce(
+  (total, currentValue) => total + currentValue.isLoggedIn,
+  0
+);
+
+let maxPoints = Object.entries(users)
+  .map((user) => ({
+    name: user[0],
+    points: user[1].points,
+  }))
+  .filter((a) => a.points >= 50);
+
+console.log(maxPoints);
 
 console.log(
   Object.entries(users).map((user) => ({
