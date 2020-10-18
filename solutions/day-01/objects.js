@@ -115,6 +115,7 @@ const userCounter = Object.values(users).reduce(
   (total, currentValue) => total + currentValue.isLoggedIn,
   0
 );
+console.log(userCounter);
 
 let maxPoints = Object.entries(users)
   .map((user) => ({
@@ -170,8 +171,8 @@ console.log(keys);
 
 // 6. All values
 
-const values = Object.values(users);
-console.log(values);
+// const values = Object.values(users);
+// console.log(values);
 
 // Objects Exercise - Level 3
 
@@ -228,3 +229,65 @@ let signUp = (username) => {
 
 console.log(signUp("Alex"));
 console.log(signUp("Chrys"));
+
+// 3
+
+const products = [
+  {
+    _id: "eedfcf",
+    name: "mobile phone",
+    description: "Huawei Honor",
+    price: 200,
+    ratings: [
+      { userId: "fg12cy", rate: 5 },
+      { userId: "zwf8md", rate: 4.5 },
+    ],
+    likes: [],
+  },
+  {
+    _id: "aegfal",
+    name: "Laptop",
+    description: "MacPro: System Darwin",
+    price: 2500,
+    ratings: [],
+    likes: ["fg12cy"],
+  },
+  {
+    _id: "hedfcg",
+    name: "TV",
+    description: "Smart TV:Procaster",
+    price: 400,
+    ratings: [{ userId: "fg12cy", rate: 5 }],
+    likes: ["fg12cy"],
+  },
+];
+
+//
+
+let rateProducts = Object.values(products).map((product) => ({
+  name: product.name,
+  ratings: product.ratings.map((rating) => rating.rate),
+}));
+
+console.log(rateProducts[0].name, rateProducts[0].ratings);
+console.log(rateProducts[2].name, rateProducts[2].ratings);
+
+let average = (array) => {
+  if (array.length) {
+    return array.reduce((a, b) => a + b) / array.length;
+  } else {
+    return "No Rating";
+  }
+};
+
+let averageRating = Object.values(products).map((product) => ({
+  ratings: product.ratings.map((rating) => rating.rate),
+  name: product.name,
+}));
+
+console.log(
+  averageRating.map(
+    (listOfRatings) =>
+      `${listOfRatings.name}: ${average(listOfRatings.ratings)}`
+  )
+);
