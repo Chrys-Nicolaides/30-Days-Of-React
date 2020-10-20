@@ -316,3 +316,17 @@ let likedProduct = (likes) => {
 };
 
 likedProduct();
+
+// Like a product
+
+let likeAProduct = (likes, userId) => {
+  if (
+    products.find((product) => product.name == likes).likes.includes(userId)
+  ) {
+    return `${userId} has already liked this product`;
+  } else products.find((product) => product.name == likes).likes.push(userId);
+  return `${userId} has liked the ${likes}!`;
+};
+
+console.log(likeAProduct("Laptop", "C123M"));
+console.log(likeAProduct("Laptop", "fg12cy"));
