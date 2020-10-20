@@ -171,8 +171,8 @@ console.log(keys);
 
 // 6. All values
 
-// const values = Object.values(users);
-// console.log(values);
+const values = Object.values(users);
+console.log(values);
 
 // Objects Exercise - Level 3
 
@@ -219,6 +219,8 @@ const mongoUsers = [
   },
 ];
 
+//
+
 let signUp = (username) => {
   if (mongoUsers.some((x) => x.username === username)) {
     return "You already have an account";
@@ -230,7 +232,18 @@ let signUp = (username) => {
 console.log(signUp("Alex"));
 console.log(signUp("Chrys"));
 
-// 3
+//
+
+let signIn = (username) => {
+  if (mongoUsers.some((x) => x.username === username)) {
+    return `Welcome back ${username}!`;
+  } else {
+    return `No username exists. Create an account today and join the family!)`;
+  }
+};
+
+console.log(signIn("Alex"));
+console.log(signIn("Chrys"));
 
 const products = [
   {
@@ -291,3 +304,15 @@ console.log(
       `${listOfRatings.name}: ${average(listOfRatings.ratings)}`
   )
 );
+
+// Check product likes
+
+let likedProduct = (likes) => {
+  products.some((x) =>
+    console.log(
+      x.likes.length ? `${x.name} has likes!` : `${x.name} has no likes`
+    )
+  );
+};
+
+likedProduct();
