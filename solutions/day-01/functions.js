@@ -119,3 +119,125 @@ const showDateTime = () => {
 };
 
 console.log(showDateTime());
+
+// 4.
+
+const swapValues = (x, y) => {
+  return [y, x];
+};
+
+console.log(swapValues(1, 2));
+console.log(swapValues("a", "b"));
+
+// 5.
+
+const reverseArray = (myArray) => {
+  let newArray = [];
+  for (let i = myArray.length - 1; i >= 0; i--) {
+    newArray.push(myArray[i]);
+  }
+  return newArray;
+};
+
+console.log(reverseArray([1, 2, 3, 4, 5]));
+console.log(reverseArray(["A", "B", "C"]));
+
+// 6.
+
+const capitalizeArray = (capArray) => {
+  let newCapArray = [];
+  for (let x of capArray) {
+    newCapArray.push(x.toUpperCase());
+  }
+  return newCapArray;
+};
+
+console.log(capitalizeArray(["a", "b", "c"]));
+console.log(capitalizeArray(["chrys", "nicolaides"]));
+
+// 7.
+
+const addItem = (item) => {
+  let newItemArray = ["butter", "flour", "yeast"];
+  for (let x of item) {
+    newItemArray.push(x);
+  }
+  return newItemArray;
+};
+
+console.log(addItem(["milk"]));
+console.log(addItem(["eggs"]));
+
+// 8.
+
+const removeItem = (item) => {
+  let newItemArray = ["butter", "flour", "yeast", "milk", "eggs"];
+  if (item > -1) {
+    newItemArray.splice(item, 1);
+  }
+  return newItemArray;
+};
+
+console.log(removeItem([1]));
+console.log(removeItem([3]));
+console.log(removeItem([4]));
+
+// 9.
+
+const evensAndOdds = (int) => {
+  let odd = 0;
+  let even = 0;
+
+  for (let i = 0; i <= int; i++) {
+    let num = i % 2;
+
+    if (num === 0) {
+      even += 1;
+    } else {
+      odd += 1;
+    }
+  }
+  return { odds: odd, evens: even };
+};
+
+console.log(evensAndOdds(100));
+
+// 10.
+
+const sumOfValues = (input) => {
+  if (input.length) {
+    return input.reduce((x, y) => x + y);
+  }
+};
+
+console.log(sumOfValues([2, 3]));
+console.log(sumOfValues([2, 2, 2]));
+console.log(sumOfValues([5, 10, 15, 20]));
+
+// 11.
+
+const userIdGenerator = () => {
+  let id = Math.random().toString(36).substr(6);
+  return id;
+};
+
+console.log(userIdGenerator());
+console.log(userIdGenerator());
+console.log(userIdGenerator());
+
+// Upper & lowercase characters for user ID
+
+const randomIdGenerator = () => {
+  let id = "";
+  let randomCharacters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (let i = 0; i < 7; i++)
+    id += randomCharacters.charAt(Math.random() * randomCharacters.length);
+  return id;
+};
+
+console.log(randomIdGenerator());
+console.log(randomIdGenerator());
+console.log(randomIdGenerator());
+console.log(randomIdGenerator());
