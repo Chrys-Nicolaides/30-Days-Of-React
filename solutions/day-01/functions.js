@@ -76,3 +76,46 @@ const checkSeason = (month) => {
 
 console.log(checkSeason("June"));
 console.log(checkSeason("October"));
+
+// Functions Exercise - Level 2
+
+// 1.
+
+const solveQuadEquation = (a, b, c, x) => {
+  let solve1 = (-1 * b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
+  let solve2 = (-1 * b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
+  return solve1 + ", " + solve2;
+};
+
+console.log(solveQuadEquation());
+console.log(solveQuadEquation(1, 4, 4));
+console.log(solveQuadEquation(1, -1, -2));
+console.log(solveQuadEquation(1, 7, 12));
+console.log(solveQuadEquation(1, 0, -4));
+console.log(solveQuadEquation(1, -1, 0));
+
+// 2.
+
+const printArray = (arr) => {
+  arr.forEach((x) => {
+    console.log(x);
+  });
+};
+
+printArray(["lemons", "carrots", "pineapples"]);
+printArray(["red", "blue", "yellow"]);
+printArray([2, 4, 6, 8]);
+
+// 3.
+
+const showDateTime = () => {
+  let todaysDate = new Date();
+  let day = todaysDate.getDate();
+  let month = todaysDate.getMonth() + 1;
+  let year = todaysDate.getFullYear();
+  let hours = todaysDate.getHours();
+  let minutes = todaysDate.getMinutes();
+  return day + "/" + month + "/" + year + " " + hours + ":" + minutes;
+};
+
+console.log(showDateTime());
