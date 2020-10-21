@@ -241,3 +241,30 @@ console.log(randomIdGenerator());
 console.log(randomIdGenerator());
 console.log(randomIdGenerator());
 console.log(randomIdGenerator());
+
+// Functions Exercise - Level 3
+
+let userIdGeneratedByUser = prompt("Enter number of characters");
+let numberOfUserIds = prompt("Enter number of ID's needed");
+console.log(userIdGeneratedByUser);
+console.log(numberOfUserIds);
+
+let generator = (input, num) => {
+  let sanitisedInput = parseInt(input);
+  let userIds = [];
+  let numOfIds = Number(num);
+  let characters =
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+  for (let j = 0; j < numOfIds; j++) {
+    let userId = "";
+
+    for (let i = 0; i < sanitisedInput; i++) {
+      userId += characters.charAt(Math.random() * characters.length);
+    }
+    userIds.push(userId);
+  }
+  return userIds.join(" ");
+};
+
+console.log(`UserID: ${generator(userIdGeneratedByUser, numberOfUserIds)}`);
