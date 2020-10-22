@@ -244,6 +244,8 @@ console.log(randomIdGenerator());
 
 // Functions Exercise - Level 3
 
+// 1.
+
 let userIdGeneratedByUser = prompt("Enter number of characters");
 let numberOfUserIds = prompt("Enter number of ID's needed");
 console.log(userIdGeneratedByUser);
@@ -268,3 +270,94 @@ let generator = (input, num) => {
 };
 
 console.log(`UserID: ${generator(userIdGeneratedByUser, numberOfUserIds)}`);
+
+// 2.
+
+// 3. Option 1 (Microsoft shuffle)
+
+const shuffleArray = (array) => {
+  if (array.length) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+};
+
+console.log(shuffleArray([2, 4, 6, 8]));
+console.log(shuffleArray(["a", "b", "c", "d"]));
+console.log(shuffleArray(["a", "b", "c", "d"]));
+
+// 3. Option 2 (Fisher-Yates Algorithm, more efficient)
+
+const arrayShuffler = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * i);
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+};
+
+console.log(arrayShuffler([2, 4, 6, 8]));
+console.log(arrayShuffler(["a", "b", "c", "d"]));
+console.log(arrayShuffler(["a", "b", "c", "d"]));
+
+// 4.
+
+const factorial = (n) => {
+  let num = 1;
+  for (let i = 2; i <= n; i++) num = num * i;
+  return num;
+};
+
+console.log(factorial(5));
+
+// 5.
+
+const isEmpty = (input) => {
+  if (Array.isArray(input)) {
+    if (input.length < 1) {
+      return "Empty Array";
+    } else {
+      return "Array";
+    }
+  } else if (typeof input === "number") {
+    return "Number";
+  } else if (typeof input === "object") {
+    if (Object.entries(input).length === 0) {
+      return "Empty Object";
+    } else {
+      return "Object";
+    }
+  } else if (typeof input === "boolean") {
+    return "Boolean";
+  } else if (typeof input === "string") {
+    if (input === "") {
+      return "Empty String";
+    } else {
+      return "String";
+    }
+  }
+};
+
+console.log(isEmpty([]));
+console.log(isEmpty([1, 2, 3]));
+console.log(isEmpty("Hello"));
+console.log(isEmpty(""));
+console.log(isEmpty(5));
+console.log(isEmpty(true));
+console.log(isEmpty(false));
+console.log(isEmpty({ odds: 2, evens: 1 }));
+console.log(isEmpty({}));
+console.log(isEmpty("Greetings"));
+console.log(isEmpty(100));
+
+// 6.
+
+let average = (array) => {
+  if (array.length) {
+    return Math.floor(array.reduce((a, b) => a + b) / array.length);
+  }
+};
+
+console.log(average([2, 2, 2]));
+console.log(average([10, 5, 2]));
