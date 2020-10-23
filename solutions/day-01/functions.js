@@ -273,6 +273,36 @@ console.log(`UserID: ${generator(userIdGeneratedByUser, numberOfUserIds)}`);
 
 // 2.
 
+const generateColors = (input, num) => {
+  let randomColors = [];
+  let numOfColors = Number(num);
+  let hexaColor = "";
+  let rgbColor = "";
+
+  let r = 0;
+  let g = 0;
+  let b = 0;
+
+  if (input.includes("hexa")) {
+    for (let j = 0; j < numOfColors; j++) {
+      hexaColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      randomColors.push(hexaColor);
+    }
+  } else if (input.includes("rgb")) {
+    for (let i = 0; i < numOfColors; i++) r = Math.floor(Math.random() * 256);
+    g = Math.floor(Math.random() * 256);
+    b = Math.floor(Math.random() * 256);
+    rgbColor = "rgb(" + r + ", " + g + ", " + b + ")";
+    randomColors.push(rgbColor);
+  }
+  return randomColors.join(" ");
+};
+
+console.log(generateColors("hexa", 3));
+console.log(generateColors("hexa", 1));
+console.log(generateColors("rgb", 3));
+console.log(generateColors("rgb", 1));
+
 // 3. Option 1 (Microsoft shuffle)
 
 const shuffleArray = (array) => {
