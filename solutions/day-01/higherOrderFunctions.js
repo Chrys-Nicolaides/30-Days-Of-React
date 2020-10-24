@@ -50,10 +50,31 @@ console.log(productPrices);
 
 // 5.
 
-let filteredProducts = [];
-products.filter(({ price }) => {
-  if (parseInt(price)) {
-    filteredProducts.push(price);
-  }
-});
-console.log(filteredProducts);
+let productFilter = (objectPrices) => {
+  return objectPrices.filter((product) => product.price > 0);
+};
+
+console.log(productFilter(products));
+
+// 6.
+
+let productsTotal = products
+  .filter((product) => parseInt(product.price) == product.price)
+  .map((product) => product.price)
+  .reduce((price, total) => total + price);
+
+console.log(`Total is: ${productsTotal} Euros`);
+
+// 7.
+
+// 8.
+
+// 9.
+
+// 10.
+
+let priceChecker = (objectPrices) => {
+  return objectPrices.filter((product) => !parseInt(product.price));
+};
+
+console.log(priceChecker(products));
