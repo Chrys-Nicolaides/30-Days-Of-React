@@ -67,9 +67,36 @@ console.log(`Total is: ${productsTotal} Euros`);
 
 // 7.
 
+console.log(
+  products.reduce((total, product) => {
+    let testedPrice = parseInt(product.price) ? parseInt(product.price) : 0;
+    return total + testedPrice;
+  }, 0)
+);
+
+let finalPrice = 0;
+products.reduce((total, product) => {
+  let priceTest = parseInt(product.price) ? parseInt(product.price) : 0;
+  return (finalPrice = total + priceTest);
+}, 0);
+
+console.log(finalPrice);
+
 // 8.
 
+let firstProductNoPrice = products.find((product) => {
+  if (!parseInt(product.price)) return product;
+});
+
+console.log(firstProductNoPrice);
+
 // 9.
+
+let firstProduct = products.findIndex((product) => {
+  if (!parseInt(product.price)) return product;
+});
+
+console.log(firstProduct);
 
 // 10.
 
@@ -78,3 +105,37 @@ let priceChecker = (objectPrices) => {
 };
 
 console.log(priceChecker(products));
+
+// 11.
+
+let priceCheckerFunction = (objectPrices) => {
+  return objectPrices.filter((product) => parseInt(product.price));
+};
+
+console.log(priceCheckerFunction(products));
+
+// 12. Method definitions
+
+// forEach() calls a provided callback function once for each element in an array in ascending order. It is not invoked for index properties that have been deleted or are uninitialized. callback is invoked with three arguments:
+
+// the value of the element
+// the index of the element
+// the Array object being traversed
+
+// The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+
+// The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+
+// The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in single output value.
+
+// 13.
+
+//  The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
+
+// The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+
+// 14.
+
+// The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
+
+// The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
